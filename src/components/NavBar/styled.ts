@@ -4,7 +4,7 @@ export const ContainerNavBar = styled.div`
   font-family: "Poppins", sans-serif;
   align-items: center;
   color: white;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 30px 80px 20px;
   height: 100px;
 `;
@@ -20,6 +20,9 @@ export const List = styled.ul`
   list-style-type: none;
   display: flex;
   gap: 20px;
+  li {
+    cursor: pointer;
+  }
 `;
 export const IconsContent = styled.div`
   display: flex;
@@ -49,4 +52,22 @@ export const UserSearch = styled.div`
   justify-content: center;
   border: 1px solid white;
   border-radius: 40px;
+`;
+interface IOptions {
+  selected: boolean;
+}
+export const Options = styled.li<IOptions>`
+  a {
+    color: ${(props) => (props.selected ? "white" : "#9e9e9e")};
+    transition: 0.2s;
+  }
+  a:hover {
+    color: white;
+  }
+  .active {
+    color: white;
+  }
+  .inOtherClass {
+    color: #9e9e9e;
+  }
 `;

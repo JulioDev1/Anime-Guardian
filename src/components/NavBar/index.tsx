@@ -1,13 +1,17 @@
+import { Link } from "react-router-dom";
 import {
   ContainerNavBar,
   FirstWord,
   IconsContent,
   List,
   LogoContent,
+  Options,
   OptionsContent,
   UserSearch,
   UserSize,
 } from "./styled";
+
+import { useState } from "react";
 
 interface Props {
   logo: string;
@@ -32,6 +36,8 @@ export const NavBar = ({
   altSearch,
   altUser,
 }: Props) => {
+  const [selected, setSelected] = useState(false);
+
   return (
     <ContainerNavBar>
       <LogoContent>
@@ -40,9 +46,15 @@ export const NavBar = ({
       </LogoContent>
       <OptionsContent>
         <List>
-          <li>{home}</li>
-          <li>{launch}</li>
-          <li>{list}</li>
+          <Options selected={selected} onClick={() => setSelected(!selected)}>
+            <Link to="/">{home}</Link>
+          </Options>
+          <Options selected={selected} onClick={() => setSelected(!selected)}>
+            <Link to="/launch">{launch}</Link>
+          </Options>
+          <Options selected={selected} onClick={() => setSelected(!selected)}>
+            <Link to="/list">{list}</Link>
+          </Options>
         </List>
       </OptionsContent>
       <IconsContent>
