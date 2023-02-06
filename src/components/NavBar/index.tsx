@@ -10,59 +10,45 @@ import {
   UserSearch,
   UserSize,
 } from "./styled";
-
+import search from "../../icons/ic_sharp-search.svg";
+import user from "../../icons/mdi_user.svg";
 import { useState } from "react";
 
-interface Props {
-  logo: string;
-  otherLogo: string;
-  home: string;
-  launch: string;
-  list: string;
-  search?: string;
-  user?: string;
-  altSearch: string;
-  altUser: string;
-}
-
-export const NavBar = ({
-  logo,
-  otherLogo,
-  home,
-  launch,
-  list,
-  search,
-  user,
-  altSearch,
-  altUser,
-}: Props) => {
+export const NavBar = () => {
+  const options = [
+    { label: "Home", path: "/", id: 1 },
+    { label: "Launch", path: "/launch", id: 2 },
+    { label: "List", path: "/list", id: 3 },
+  ];
   const [selected, setSelected] = useState(false);
 
   return (
     <ContainerNavBar>
       <LogoContent>
-        <h2>{logo}</h2>
-        <FirstWord>{otherLogo}</FirstWord>
+        <h2>Anime</h2>
+        <FirstWord>Guardian</FirstWord>
       </LogoContent>
       <OptionsContent>
         <List>
-          <Options selected={selected} onClick={() => setSelected(!selected)}>
-            <Link to="/">{home}</Link>
-          </Options>
-          <Options selected={selected} onClick={() => setSelected(!selected)}>
-            <Link to="/launch">{launch}</Link>
-          </Options>
-          <Options selected={selected} onClick={() => setSelected(!selected)}>
-            <Link to="/list">{list}</Link>
-          </Options>
+          {options.map((option) => (
+            <Options
+              selected={option.path === window.location.pathname}
+              key={option.id}
+            >
+              <Link to={option.path} onClick={() => setSelected(!selected)}>
+                {" "}
+                {option.label}
+              </Link>
+            </Options>
+          ))}
         </List>
       </OptionsContent>
       <IconsContent>
         <UserSize>
-          <img src={search} alt={altSearch} />
+          <img src={search} alt="search" />
         </UserSize>
         <UserSearch>
-          <img src={user} alt={altUser} />
+          <img src={user} alt="user" />
         </UserSearch>
       </IconsContent>
     </ContainerNavBar>

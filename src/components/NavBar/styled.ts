@@ -23,6 +23,8 @@ export const List = styled.ul`
   li {
     cursor: pointer;
   }
+  &:active {
+  }
 `;
 export const IconsContent = styled.div`
   display: flex;
@@ -60,9 +62,6 @@ export const Options = styled.li<IOptions>`
   a {
     color: ${(props) => (props.selected ? "white" : "#9e9e9e")};
     transition: 0.2s;
-  }
-  a:hover {
-    color: white;
   }
   .active {
     color: white;
