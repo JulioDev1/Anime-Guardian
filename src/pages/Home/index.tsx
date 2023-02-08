@@ -4,7 +4,8 @@ import { useEffect, useState, useRef } from "react";
 
 export function Home() {
   const [info, setInfo]: any = useState([]);
-  const carousel = useRef(null);
+  const carousel = useRef<HTMLDivElement | null>(null);
+  const [newPosition, setNewPosition] = useState(0);
 
   useEffect(() => {
     fetch("https://gogoanime.consumet.stream/popular")
@@ -13,13 +14,42 @@ export function Home() {
         setInfo(response);
       });
   }, []);
-  // const handleClickRight = (e: MouseEvent<HTMLButtonElement>) => {
-  //   e.preventDefault();
-  //   console.log(carousel.current.offsetWidth);
-  // };
+
+  const handleClickRight = (e: any) => {
+    e.preventDefault();
+    const position = carousel.current?.offsetWidth;
+    if (position) {
+      setNewPosition((value) => {
+        return (value += Number(position));
+      });
+    }
+    console.log(newPosition);
+    carousel.current?.scrollTo(Number(newPosition), 0);
+  };
+
+  const handleClickLeft = (e: any) => {
+    e.preventDefault();
+
+    const position = carousel.current?.offsetWidth;
+
+    setNewPosition((value) => {
+      return value - Number(position);
+    });
+    console.log(newPosition);
+    carousel.current?.scrollTo(Number(newPosition), 0);
+  };
 
   return (
     <HomeContainer>
+      <button
+        onClick={
+          newPosition >= 0
+            ? (event: MouseEvent) => handleClickLeft(event)
+            : console.log("bloqueado")
+        }
+      >
+        click to left
+      </button>
       <ContainerPoster ref={carousel}>
         {info.map((anime: any) => (
           <AnimeCard
@@ -29,6 +59,7 @@ export function Home() {
           />
         ))}
       </ContainerPoster>
+      <button onClick={handleClickRight}>click to right</button>
     </HomeContainer>
   );
 }

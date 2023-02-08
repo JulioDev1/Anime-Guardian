@@ -5,8 +5,6 @@ export const PostContainer = styled.div`
   display: flex;
   align-content: center;
   flex-direction: column;
-
-  flex: none;
   img {
     height: 318px;
     width: 225px;
@@ -24,7 +22,7 @@ export const InfoContent = styled.div`
   align-items: center;
   height: 38px;
 `;
-export const AnimeTitle = styled.h1`
+export const AnimeTitle = styled.span`
   font-size: 15px;
   color: white;
 `;
