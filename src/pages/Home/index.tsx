@@ -1,6 +1,18 @@
-import { ContainerPoster, HomeContainer } from "./styled";
+import {
+  ContainerPoster,
+  HomeContainer,
+  RightButton,
+  LeftButton,
+  CarrouselContainer,
+  PageContainer,
+  Titles,
+} from "./styled";
+
 import { AnimeCard } from "../../components/AnimeCard";
+
 import { useEffect, useState, useRef } from "react";
+
+import Vector from "../../icons/Vector.svg";
 
 export function Home() {
   const [info, setInfo]: any = useState([]);
@@ -41,25 +53,32 @@ export function Home() {
 
   return (
     <HomeContainer>
-      <button
-        onClick={
-          newPosition >= 0
-            ? (event: MouseEvent) => handleClickLeft(event)
-            : console.log("bloqueado")
-        }
-      >
-        click to left
-      </button>
-      <ContainerPoster ref={carousel}>
-        {info.map((anime: any) => (
-          <AnimeCard
-            animeImg={anime.animeImg}
-            animeTitle={anime.animeTitle}
-            animeId={anime.animeId}
-          />
-        ))}
-      </ContainerPoster>
-      <button onClick={handleClickRight}>click to right</button>
+      <PageContainer>
+        <Titles>Mais populares</Titles>
+        <CarrouselContainer>
+          <LeftButton
+            onClick={
+              newPosition >= 0
+                ? (event: MouseEvent) => handleClickLeft(event)
+                : console.log("bloqueado")
+            }
+          >
+            <img src={Vector} alt="leftClick" />
+          </LeftButton>
+          <ContainerPoster ref={carousel}>
+            {info.map((anime: any) => (
+              <AnimeCard
+                animeImg={anime.animeImg}
+                animeTitle={anime.animeTitle}
+                animeId={anime.animeId}
+              />
+            ))}
+          </ContainerPoster>
+          <RightButton onClick={handleClickRight}>
+            <img src={Vector} alt="rightClick" />
+          </RightButton>
+        </CarrouselContainer>
+      </PageContainer>
     </HomeContainer>
   );
 }
