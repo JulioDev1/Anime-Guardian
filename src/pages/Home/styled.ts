@@ -38,21 +38,38 @@ export const LeftButton = styled.button`
 export const CarrouselContainer = styled.div`
   display: flex;
   flex-direction: row;
-  max-width: 1200px;
-  width: 1035px;
+  max-width: 1300px;
+  width: 1080px;
   min-width: 800px;
   justify-content: center;
   align-items: center;
   transition: 0.5s;
+  gap: 20px;
+  cursor: pointer;
 `;
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 export const Titles = styled.span`
   color: white;
   font-family: "Poppins";
   font-size: 15px;
-  margin-left: 20px;
+  text-align: start;
   margin-bottom: 10px;
+`;
+export const SeparateDiv = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  width: 1000px;
+  height: 55px;
+  border-radius: 5px;
+  border: 1px solid #2649ff;
+  margin-top: 100px;
+  color: white;
+  font-family: "Poppins";
+  font-size: 15px;
 `;

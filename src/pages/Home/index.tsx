@@ -6,6 +6,7 @@ import {
   CarrouselContainer,
   PageContainer,
   Titles,
+  SeparateDiv,
 } from "./styled";
 
 import { AnimeCard } from "../../components/AnimeCard";
@@ -45,8 +46,9 @@ export function Home() {
     const position = carousel.current?.offsetWidth;
 
     setNewPosition((value) => {
-      return value - Number(position);
+      return Math.abs((value -= Number(position)));
     });
+
     console.log(newPosition);
     carousel.current?.scrollTo(Number(newPosition), 0);
   };
@@ -54,15 +56,9 @@ export function Home() {
   return (
     <HomeContainer>
       <PageContainer>
-        <Titles>Mais populares</Titles>
+        <Titles>Mais bem votados</Titles>
         <CarrouselContainer>
-          <LeftButton
-            onClick={
-              newPosition >= 0
-                ? (event: MouseEvent) => handleClickLeft(event)
-                : console.log("bloqueado")
-            }
-          >
+          <LeftButton onClick={handleClickLeft}>
             <img src={Vector} alt="leftClick" />
           </LeftButton>
           <ContainerPoster ref={carousel}>
@@ -78,6 +74,7 @@ export function Home() {
             <img src={Vector} alt="rightClick" />
           </RightButton>
         </CarrouselContainer>
+        <SeparateDiv>Outros Animes</SeparateDiv>
       </PageContainer>
     </HomeContainer>
   );
