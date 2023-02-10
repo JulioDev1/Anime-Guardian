@@ -31,21 +31,7 @@ export const IconsContent = styled.div`
   align-items: center;
   gap: 10px;
 `;
-export const UserSize = styled.div`
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #212529;
-  border-radius: 40px;
-`;
-export const OptionsContent = styled.div`
-  display: flex;
-  align-items: center;
-  width: 300px;
-  margin-right: 500px;
-`;
+
 export const UserSearch = styled.div`
   width: 40px;
   height: 40px;
@@ -54,6 +40,12 @@ export const UserSearch = styled.div`
   justify-content: center;
   border: 1px solid white;
   border-radius: 40px;
+`;
+export const OptionsContent = styled.div`
+  display: flex;
+  align-items: center;
+  width: 300px;
+  margin-right: 500px;
 `;
 interface IOptions {
   selected: boolean;

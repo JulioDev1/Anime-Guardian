@@ -72,4 +72,23 @@ export const SeparateDiv = styled.button`
   color: white;
   font-family: "Poppins";
   font-size: 15px;
+  margin-bottom: 30px;
+`;
+export const AnimeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+export const AnimeSearch = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -15px;
+  margin-bottom: -15px;
+  width: 75rem;
+  border-radius: 10px;
+  margin-right: -15px;
+  margin-top: -15px;
+  background-color: #0f1012;
 `;

@@ -8,17 +8,15 @@ import {
   Options,
   OptionsContent,
   UserSearch,
-  UserSize,
 } from "./styled";
-import search from "../../icons/ic_sharp-search.svg";
 import user from "../../icons/mdi_user.svg";
 import { useState } from "react";
 
 export const NavBar = () => {
   const options = [
-    { label: "Home", path: "/", id: 1 },
-    { label: "Launch", path: "/launch", id: 2 },
-    { label: "List", path: "/list", id: 3 },
+    { label: "Inicio", path: "/", id: 1 },
+    { label: "Lançamentos", path: "/launch", id: 2 },
+    { label: "Lista", path: "/list", id: 3 },
   ];
   const [selected, setSelected] = useState(false);
 
@@ -44,9 +42,6 @@ export const NavBar = () => {
         </List>
       </OptionsContent>
       <IconsContent>
-        <UserSize>
-          <img src={search} alt="search" />
-        </UserSize>
         <UserSearch>
           <img src={user} alt="user" />
         </UserSearch>

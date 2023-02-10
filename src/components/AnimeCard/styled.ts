@@ -6,23 +6,28 @@ export const PostContainer = styled.div`
   align-content: center;
   flex-direction: column;
   img {
-    height: 318px;
-    width: 225px;
+    height: 280px;
+    width: 165px;
   }
 `;
 export const Poster = styled.img`
   filter: drop-shadow(5px 0px 13px #000);
 `;
 export const PostContent = styled.div`
-  width: 90%;
+  max-width: 165px;
   margin: 20px 15px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 export const InfoContent = styled.div`
   display: flex;
   align-items: center;
-  height: 38px;
 `;
 export const AnimeTitle = styled.span`
   font-size: 15px;
+  max-width: 90%;
+  max-height: 30px;
   color: white;
 `;
