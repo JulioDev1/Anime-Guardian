@@ -20,6 +20,7 @@ export const PostContent = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  cursor: pointer;
 `;
 export const InfoContent = styled.div`
   display: flex;

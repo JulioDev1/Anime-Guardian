@@ -19,11 +19,14 @@ import Vector from "../../icons/Vector.svg";
 import { Search } from "../../components/Search";
 
 export function Home() {
+  ///HOOKS
   const [info, setInfo]: any = useState([]);
-  const carousel = useRef<HTMLDivElement | null>(null);
-  const [newPosition, setNewPosition] = useState(0);
   const [results, setResult] = useState([]);
+  const [animes, setAnime] = useState([]);
 
+  const [newPosition, setNewPosition] = useState(0);
+  const carousel = useRef<HTMLDivElement | null>(null);
+  ///API
   useEffect(() => {
     fetch("https://gogoanime.consumet.stream/popular")
       .then((response) => response.json())
@@ -32,11 +35,21 @@ export function Home() {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("https://gogoanime.consumet.stream/genre/action")
+      .then((response) => response.json())
+      .then((animeList) => setAnime(animeList));
+  }, []);
+
   const loadAnime = (searchAnime: string) => {
     fetch(`https://gogoanime.consumet.stream/search?keyw=${searchAnime}`)
       .then((response) => response.json())
       .then((animeList) => setResult(animeList));
   };
+
+  console.log({ results });
+
+  ///functions
 
   const handleClickRight = (e: any) => {
     e.preventDefault();
@@ -89,13 +102,21 @@ export function Home() {
         <AnimeContainer>
           <Search loadAnime={loadAnime} />
           <AnimeSearch>
-            {results.map((anime: any) => (
-              <AnimeCard
-                animeImg={anime.animeImg}
-                animeTitle={anime.animeTitle}
-                animeId={anime.animeId}
-              />
-            ))}
+            {results.length > 0
+              ? results.map((anime: any) => (
+                  <AnimeCard
+                    animeImg={anime.animeImg}
+                    animeTitle={anime.animeTitle}
+                    animeId={anime.animeId}
+                  />
+                ))
+              : animes.map((anime: any) => (
+                  <AnimeCard
+                    animeImg={anime.animeImg}
+                    animeTitle={anime.animeTitle}
+                    animeId={anime.animeId}
+                  />
+                ))}
           </AnimeSearch>
         </AnimeContainer>
       </PageContainer>
