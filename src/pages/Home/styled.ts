@@ -4,7 +4,7 @@ export const ContainerPoster = styled.div`
   display: flex;
   justify-content: flex-start;
   background-color: #0f1012;
-  overflow-x: hidden;
+  overflow: hidden;
   max-width: 500rem;
   width: 2000px;
   min-width: 800px;
@@ -26,6 +26,7 @@ export const RightButton = styled.button`
   background: none;
   width: 11px;
   height: 18px;
+  cursor: pointer;
   transform: rotate(180deg);
 `;
 export const LeftButton = styled.button`
@@ -33,6 +34,7 @@ export const LeftButton = styled.button`
   width: 11px;
   height: 18px;
   background: none;
+  cursor: pointer;
 `;
 
 export const CarrouselContainer = styled.div`
@@ -85,7 +87,6 @@ export const AnimeSearch = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-left: -15px;
-  margin-bottom: -15px;
   width: 75rem;
   border-radius: 10px;
   margin-right: -15px;

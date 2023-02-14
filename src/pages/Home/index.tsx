@@ -67,12 +67,13 @@ export function Home() {
   const handleClickLeft = (e: any) => {
     e.preventDefault();
 
-    const position = carousel.current?.offsetWidth;
+    const position: any = carousel.current?.offsetWidth;
 
-    setNewPosition((value) => {
-      return Math.abs((value -= Number(position)));
-    });
-
+    if (position > 0) {
+      setNewPosition((value) => {
+        return (value -= Number(position));
+      });
+    }
     console.log(newPosition);
     carousel.current?.scrollTo(Number(newPosition), 0);
   };
@@ -91,6 +92,7 @@ export function Home() {
                 animeImg={anime.animeImg}
                 animeTitle={anime.animeTitle}
                 animeId={anime.animeId}
+                key={anime.animeId}
               />
             ))}
           </ContainerPoster>
@@ -108,6 +110,7 @@ export function Home() {
                     animeImg={anime.animeImg}
                     animeTitle={anime.animeTitle}
                     animeId={anime.animeId}
+                    key={anime.animeId}
                   />
                 ))
               : animes.map((anime: any) => (
@@ -115,6 +118,7 @@ export function Home() {
                     animeImg={anime.animeImg}
                     animeTitle={anime.animeTitle}
                     animeId={anime.animeId}
+                    key={anime.animeId}
                   />
                 ))}
           </AnimeSearch>
