@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const PostContainer = styled.div`
   font-family: "Roboto";
@@ -14,6 +14,13 @@ export const PostContainer = styled.div`
 `;
 export const Poster = styled.img`
   filter: drop-shadow(5px 0px 13px #000);
+  transition: 0.3s;
+  :hover {
+    background-color: #000000;
+    opacity: 20%;
+    transform: 20px;
+    filter: drop-shadow(22px 12px 19px #000);
+  }
 `;
 export const PostContent = styled.div`
   max-width: 165px;
@@ -23,6 +30,7 @@ export const PostContent = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
   cursor: pointer;
+  transition: 0.2s;
 `;
 export const InfoContent = styled.div`
   display: flex;
@@ -36,6 +44,9 @@ export const AnimeTitle = styled.span`
 `;
 export const ButtonPlay = styled.button`
   &.button-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 39%;
     left: 20%;
@@ -47,16 +58,23 @@ export const ButtonPlay = styled.button`
     border: none;
     border-radius: 30px;
     filter: drop-shadow(5px 1px 4px #000);
+    cursor: pointer;
+  }
+  &.hide {
+    display: none;
   }
   img {
-    width: 12px;
-    height: 12px;
+    width: 17px;
+    height: 17px;
   }
 `;
 export const ButtonAdd = styled.button`
   &.button-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    top: 39.5%;
+    top: 39%;
     left: 50%;
     z-index: 3;
     background-color: #2649ff;
@@ -65,11 +83,15 @@ export const ButtonAdd = styled.button`
     color: white;
     border: none;
     border-radius: 30px;
-    filter: drop-shadow(5px 1px 4px #000);
+    filter: drop-shadow(5px 1px 2px #000);
+    cursor: pointer;
+  }
+  &.hide {
+    display: none;
   }
   img {
-    width: 17px;
-    height: 17px;
+    width: 25px;
+    height: 25px;
     top: 12px;
     color: white;
   }

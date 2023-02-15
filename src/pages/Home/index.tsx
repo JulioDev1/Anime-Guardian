@@ -89,6 +89,7 @@ export function Home() {
           <ContainerPoster ref={carousel}>
             {info.map((anime: any) => (
               <AnimeCard
+                className="hide"
                 animeImg={anime.animeImg}
                 animeTitle={anime.animeTitle}
                 animeId={anime.animeId}
@@ -107,6 +108,7 @@ export function Home() {
             {results.length > 0
               ? results.map((anime: any) => (
                   <AnimeCard
+                    className="hide"
                     animeImg={anime.animeImg}
                     animeTitle={anime.animeTitle}
                     animeId={anime.animeId}
@@ -115,6 +117,7 @@ export function Home() {
                 ))
               : animes.map((anime: any) => (
                   <AnimeCard
+                    className="hide"
                     animeImg={anime.animeImg}
                     animeTitle={anime.animeTitle}
                     animeId={anime.animeId}
