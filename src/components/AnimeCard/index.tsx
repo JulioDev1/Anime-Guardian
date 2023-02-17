@@ -26,17 +26,15 @@ export const AnimeCard = ({
 }: Props) => {
   const [view, setView] = useState(true);
 
-  const viewPlayButton = (cardId: string, event: any) => {
-    const elementoPai = event.currentTarget;
+  const showButtons = (cardId: string, event: any) => {
     const elementoRelacionado = event.relatedTarget;
 
-    console.log(elementoRelacionado);
-
-    if (elementoPai.contains(elementoRelacionado)) {
-      console.log("a");
+    if (elementoRelacionado.tagName === "BUTTON") {
+      return;
     }
     const card = document.querySelector(`#${cardId}`);
     const buttons = card?.querySelectorAll("button");
+
     if (view) {
       setView(false);
     } else {
@@ -72,22 +70,17 @@ export const AnimeCard = ({
       </ButtonAdd>
       <PostContent
         onMouseEnter={(event) => {
-          viewPlayButton(animeId, event);
-          console.log("enter");
+          showButtons(animeId, event);
         }}
         onMouseLeave={(event) => {
-          viewPlayButton(animeId, event);
-          console.log("leave");
+          showButtons(animeId, event);
         }}
       >
-        {/* <ActionIfMoveTheMouse> */}
-
         <Poster src={animeImg} alt="anime" />
         <InfoContent>
           <AnimeTitle>{animeTitle}</AnimeTitle>
         </InfoContent>
       </PostContent>
-      {/* </ActionIfMoveTheMouse> */}
     </PostContainer>
   );
 };
